@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title"> Price List</h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class=" text-primary">
+              <th>
+                Id
+              </th>
+              <th>
+                Product
+              </th>
+              <th>
+                Site
+              </th>
+              <th>
+                Date
+              </th>
+              <th class="text-right">
+                Price
+              </th>
+            </thead>
+            <tbody >
+              <tr *ngFor ='let price of prices'>
+                <td>
+                  {{price.id}}
+                </td>
+                <td>
+                  {{price.product.productName}}
+                </td>
+                <td>
+                  {{price.site.siteName}}
+                </td>
+                <td>
+                  {{price.date}}
+                </td>
+                <td class="text-right">
+                  {{price.price}}
+                </td>
+              </tr>
+         
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
