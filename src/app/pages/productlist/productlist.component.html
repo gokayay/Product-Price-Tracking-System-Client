@@ -1,5 +1,49 @@
 <div class="row">
-  <div class="col-md-12">
+
+<div class="col-md-4" *ngFor = 'let product of products'>
+  <div class="card card-user">
+    <div class="image" style="height: auto;">
+      <img src="assets/img/header.jpg" alt="...">
+    </div>
+    <div class="card-body">
+      <div class="author" style="margin-top: 0px;">
+          <h5 class="title"> {{product.productName}}</h5>
+      </div>
+      <p class="description text-center">
+        {{product.productComment}}
+      </p>
+    </div>
+    <div class="card-footer">
+      <hr>
+      <div class="button-container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-6 ml-auto">
+            <h5>Id
+              <br>
+              <small>{{product.id}}</small>
+            </h5>
+          </div>
+          <div class="col-lg-3 mr-auto"> 
+            <div [routerLink]="['/productlist']">
+            <h5>Edit
+              <br>
+              <small>Click</small>
+            </h5></div>
+          </div>
+          <div class="col-lg-3 mr-auto">
+            <div [routerLink]="['/table']">
+            <h5>Price
+              <br>
+              <small>Click</small>
+            </h5></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+</div>
+  <!--<div class="col-md-12">
     <div class="card">
       <div class="card-header">
         <h4 class="card-title"> Product List</h4>
@@ -36,4 +80,4 @@
       </div>
     </div>
   </div>
- 
+-->

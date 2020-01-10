@@ -1,4 +1,55 @@
 <div class="row">
+
+    <div class="col-md-4" *ngFor = 'let site of sites'>
+      <div class="card card-user">
+        <div class="image" style="height: auto;">
+          <img src="assets/img/jan-sendereks.jpg" alt="...">
+        </div>
+        <div class="card-body">
+          <div class="author" style="margin-top: 0px;">
+              <h5 class="title"> {{site.siteName}}</h5>
+              <p class="description">
+                {{site.siteUrl}}
+              </p>
+          </div>
+          
+          <p class="description text-center">
+            {{site.siteXpath}}
+          </p>
+        </div>
+        <div class="card-footer">
+          <hr>
+          <div class="button-container">
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-6 ml-auto">
+                <h5>Id
+                  <br>
+                  <small>{{site.id}}</small>
+                </h5>
+              </div>
+              <div class="col-lg-3 mr-auto"> 
+                <div [routerLink]="['/sitelist']">
+                <h5>Edit
+                  <br>
+                  <small>Click</small>
+                </h5></div>
+              </div>
+              <div class="col-lg-6 mr-auto">
+                <a href="{{site.siteUrl}}">
+                <h5>Go to Site!
+                  <br>
+                  <small>Click here</small>
+                </h5></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+</div>  
+
+
+<!--<div class="row">
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
@@ -42,4 +93,4 @@
       </div>
     </div>
   </div>
- 
+-->

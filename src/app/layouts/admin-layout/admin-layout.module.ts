@@ -19,6 +19,7 @@ import { ProductListComponent }     from '../../pages/productlist/productlist.co
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductPathsComponent } from 'app/pages/productpaths/productpaths.component';
 import { SiteListComponent } from 'app/pages/sitelist/sitetlist.component';
+import { HomepageComponent } from 'app/pages/homepage/homepage.component';
 
 @NgModule({
   imports: [
@@ -38,7 +39,8 @@ import { SiteListComponent } from 'app/pages/sitelist/sitetlist.component';
     NotificationsComponent,
     ProductListComponent,
     ProductPathsComponent,
-    SiteListComponent
+    SiteListComponent,
+    HomepageComponent
   ]
 })
 

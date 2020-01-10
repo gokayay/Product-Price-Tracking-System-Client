@@ -11,8 +11,10 @@ import { UpgradeComponent } from '../../pages/upgrade/upgrade.component';
 import { ProductListComponent } from '../../pages/productlist/productlist.component';
 import { ProductPathsComponent } from 'app/pages/productpaths/productpaths.component';
 import { SiteListComponent } from 'app/pages/sitelist/sitetlist.component';
+import { HomepageComponent } from 'app/pages/homepage/homepage.component';
 
 export const AdminLayoutRoutes: Routes = [
+    { path: 'homepage',      component: HomepageComponent },
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user',           component: UserComponent },
     { path: 'table',          component: TableComponent },
