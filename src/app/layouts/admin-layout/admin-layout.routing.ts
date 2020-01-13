@@ -12,6 +12,9 @@ import { ProductListComponent } from '../../pages/productlist/productlist.compon
 import { ProductPathsComponent } from 'app/pages/productpaths/productpaths.component';
 import { SiteListComponent } from 'app/pages/sitelist/sitetlist.component';
 import { HomepageComponent } from 'app/pages/homepage/homepage.component';
+import { ProductEditComponent } from 'app/pages/productedit/productedit.component';
+import { SiteEditComponent } from 'app/pages/siteedit/siteedit.component';
+import { ProductPathEditComponent } from 'app/pages/productpathedit/productpathedit.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'homepage',      component: HomepageComponent },
@@ -25,5 +28,10 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent },
-    { path: 'upgrade',        component: UpgradeComponent }
+    { path: 'upgrade',        component: UpgradeComponent },
+    { path: 'productedit',    component: ProductEditComponent },
+    { path: 'siteedit',    component: SiteEditComponent },
+    { path: 'productpathedit',    component: ProductPathEditComponent },
+
+
 ];

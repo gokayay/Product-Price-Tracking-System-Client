@@ -19,6 +19,13 @@ export const ROUTES: RouteInfo[] = [
     { path: '/sitelist',      title: 'Site List',         icon:'nc-cart-simple',    class: '' },
     { path: '/productlist',   title: 'Product List',      icon:'nc-tag-content',    class: '' },
     { path: '/productpaths',   title: 'Product Path',      icon:'nc-vector',    class: '' },
+
+    { path: '/homepage',   title: '.',      icon:'nc-simple-delete',    class: '' },
+
+    { path: '/productedit',   title: 'Edit Product',      icon:'nc-tag-content',    class: '' },
+    { path: '/siteedit',      title: 'Edit Site',         icon:'nc-cart-simple',    class: '' },
+    { path: '/productpathedit',   title: 'Edit Product Path',      icon:'nc-vector',    class: '' },
+
     //{ path: '/typography',    title: 'Typography',        icon:'nc-caps-small', class: '' },
 ];
 

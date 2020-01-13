@@ -20,6 +20,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductPathsComponent } from 'app/pages/productpaths/productpaths.component';
 import { SiteListComponent } from 'app/pages/sitelist/sitetlist.component';
 import { HomepageComponent } from 'app/pages/homepage/homepage.component';
+import { ProductEditComponent } from 'app/pages/productedit/productedit.component';
+import { SiteEditComponent } from 'app/pages/siteedit/siteedit.component';
+import { ProductPathEditComponent } from 'app/pages/productpathedit/productpathedit.component';
 
 @NgModule({
   imports: [
@@ -40,7 +43,10 @@ import { HomepageComponent } from 'app/pages/homepage/homepage.component';
     ProductListComponent,
     ProductPathsComponent,
     SiteListComponent,
-    HomepageComponent
+    HomepageComponent,
+    ProductEditComponent,
+    SiteEditComponent,
+    ProductPathEditComponent
   ]
 })
 
