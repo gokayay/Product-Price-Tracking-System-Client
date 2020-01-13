@@ -17,7 +17,7 @@ export class ProductEditComponent implements OnInit{
     }
 
     updateProduct(e){
-        this.dataService.putProduct(1)
+        this.dataService.putProduct(e)
         .subscribe(data =>this.products = data);
 
     }

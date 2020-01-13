@@ -4,57 +4,57 @@
       <div class="card-header">
         <h5 class="card-title">Edit Site</h5>
       </div>
-      <div *ngIf="product" class="card-body">
-        <form>
+      <div *ngIf="site" class="card-body">
+        <form (ngSubmit)="onSubmit()" [formGroup]="siteForm">
           <div class="row">
             <div class="col-md-6">
-              <div class="form-group">
+    
                 <label>Site Id</label>
-                <input type="text" class="form-control" disabled="" placeholder="Id here" value="{{product.id}}">
-              </div>
+                <input type="text" class="form-control" formControlName="formSiteId" disabled="" placeholder="Id here" value="{{site.id}}">
+              
             </div>
             <div class="col-md-4 ml-auto">
               <div class="image" style="height: auto;">
-                <img src="./assets/img/jan-sendereks.jpg" alt="...">
+                <img src="{{site.siteImg}}" alt="{{site.siteImg}}">
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12">
-              <div class="form-group">
+             
                 <label>Site Name</label>
-                <input type="text" class="form-control" placeholder="Home Address" value="{{product.siteName}}">
+                <input type="text" class="form-control" formControlName="formSiteName" placeholder="siteName here" value="{{site.siteName}}">
               </div>
-            </div>
+            
           </div>
           <div class="row">
             <div class="col-md-12">
-              <div class="form-group">
+              
                 <label>Site Url</label>
-                <input type="text" class="form-control" placeholder="Home Address" value="{{product.siteUrl}}">
+                <input type="text" class="form-control" formControlName="formSiteUrl"  placeholder="siteUrl here" value="{{site.siteUrl}}">
               </div>
-            </div>
+            
           </div>
           <div class="row">
             <div class="col-md-12">
-              <div class="form-group">
+              
                 <label>Site Image Url</label>
-                <input type="text" class="form-control" placeholder="Home Address" value="{{product.siteImg}}">
-              </div>
+                <input type="text" class="form-control"  formControlName="formSiteImg" placeholder="siteImg url here" value="{{site.siteImg}}">
+              
             </div>
           </div>
           <div class="row">
             <div class="col-md-12">
-              <div class="form-group">
+             
                 <label>Site's Xpath</label>
-                <textarea class="form-control textarea">value="{{product.siteXpath}}"</textarea>
-              </div>
+                <input type="text" class="form-control textarea"  formControlName="formSiteXpath" placeholder="Xpath here" value="{{site.siteXpath}}">
+              
             </div>
           </div>
           <div class="row">
             <div class="col-md-6 text-center">
               <div class="update ml-auto mr-auto">
-                <button type="submit" class="btn btn-primary btn-round">Update Site</button>
+                <button type="submit" class="btn btn-primary btn-round" (click)="updateSite($event,site)">Update Site</button>
               </div>
             </div>
             <div class="col-md-6 text-center">
