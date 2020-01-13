@@ -3,4 +3,5 @@ export class Site{
     siteName : string;
     siteUrl : string;
     siteXpath : string;
+    siteImg : string;
 }

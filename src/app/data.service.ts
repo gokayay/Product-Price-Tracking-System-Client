@@ -29,4 +29,12 @@ export class DataService {
   getPrices() :Observable<Price[]>{
     return this._http.get<Price[]>(environment.priceUrl);
   }
+
+  getOneProduct() :Observable<Product[]>{
+    return this._http.get<Product[]>(environment.productUrl+"{{Product.id}}");
+  }
+
+  putProduct(id) :Observable<Product[]>{
+    return this._http.put<Product[]>(`${environment.productUrl}/${id}`, Product);
+  }
 }

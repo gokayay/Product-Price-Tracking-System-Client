@@ -4,13 +4,18 @@
       <div class="card-header">
         <h5 class="card-title">Edit Site</h5>
       </div>
-      <div class="card-body">
+      <div *ngIf="product" class="card-body">
         <form>
           <div class="row">
-            <div class="col-md-6 pr-1">
+            <div class="col-md-6">
               <div class="form-group">
                 <label>Site Id</label>
-                <input type="text" class="form-control" disabled="" placeholder="Id here" value="Id">
+                <input type="text" class="form-control" disabled="" placeholder="Id here" value="{{product.id}}">
+              </div>
+            </div>
+            <div class="col-md-4 ml-auto">
+              <div class="image" style="height: auto;">
+                <img src="./assets/img/jan-sendereks.jpg" alt="...">
               </div>
             </div>
           </div>
@@ -18,7 +23,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Site Name</label>
-                <input type="text" class="form-control" placeholder="Home Address" value="Site's Name here">
+                <input type="text" class="form-control" placeholder="Home Address" value="{{product.siteName}}">
               </div>
             </div>
           </div>
@@ -26,7 +31,15 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Site Url</label>
-                <input type="text" class="form-control" placeholder="Home Address" value="Site's Url here">
+                <input type="text" class="form-control" placeholder="Home Address" value="{{product.siteUrl}}">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Site Image Url</label>
+                <input type="text" class="form-control" placeholder="Home Address" value="{{product.siteImg}}">
               </div>
             </div>
           </div>
@@ -34,13 +47,20 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Site's Xpath</label>
-                <textarea class="form-control textarea">Site's Xpath here. Lorem ipsum dolor sit amet.</textarea>
+                <textarea class="form-control textarea">value="{{product.siteXpath}}"</textarea>
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="update ml-auto mr-auto">
-              <button type="submit" class="btn btn-primary btn-round">Update Site</button>
+            <div class="col-md-6 text-center">
+              <div class="update ml-auto mr-auto">
+                <button type="submit" class="btn btn-primary btn-round">Update Site</button>
+              </div>
+            </div>
+            <div class="col-md-6 text-center">
+              <div class="update ml-auto mr-auto">
+                <button type="delete" class="btn btn-danger btn-round">Delete Site</button>
+              </div>
             </div>
           </div>
         </form>

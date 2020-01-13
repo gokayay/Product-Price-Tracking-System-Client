@@ -32,6 +32,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'productedit',    component: ProductEditComponent },
     { path: 'siteedit',    component: SiteEditComponent },
     { path: 'productpathedit',    component: ProductPathEditComponent },
+    { path: 'siteedit/:id',    component: SiteEditComponent },
 
 
 ];

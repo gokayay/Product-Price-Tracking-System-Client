@@ -7,10 +7,15 @@
       <div class="card-body">
         <form>
           <div class="row">
-            <div class="col-md-6 pr-1">
+            <div class="col-md-6">
               <div class="form-group">
                 <label>Product Id</label>
                 <input type="text" class="form-control" disabled="" placeholder="Id here" value="Id">
+              </div>
+            </div>
+            <div class="col-md-4 ml-auto">
+              <div class="image" style="height: auto;">
+                <img src="./assets/img/jan-sendereks.jpg" alt="...">
               </div>
             </div>
           </div>
@@ -31,8 +36,23 @@
             </div>
           </div>
           <div class="row">
-            <div class="update ml-auto mr-auto">
-              <button type="submit" class="btn btn-primary btn-round">Update Product</button>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Product Image Url</label>
+                <input type="text" class="form-control" placeholder="Home Address" value="Product's Url here">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 text-center">
+              <div class="update ml-auto mr-auto">
+                <button (click)="updateProduct($event)" type="submit" class="btn btn-primary btn-round">Update Product</button>
+              </div>
+            </div>
+            <div class="col-md-6 text-center">
+              <div class="update ml-auto mr-auto">
+                <button type="delete" class="btn btn-danger btn-round">Delete Product</button>
+              </div>
             </div>
           </div>
         </form>

@@ -1,9 +1,16 @@
 <div class="row">
+  <div class="col-md-4">
+    <button type="button" class="btn btn-success btn-round" style="margin-top: 0px;">Add A Product here</button>
+  </div>
+</div>
+<div class="row"><p></p><p></div>
+
+<div class="row">
 
 <div class="col-md-4" *ngFor = 'let product of products'>
   <div class="card card-user">
     <div class="image" style="height: auto;">
-      <img src="assets/img/header.jpg" alt="...">
+      <img src="{{product.productImg}}" alt="{{product.productName}}">
     </div>
     <div class="card-body">
       <div class="author" style="margin-top: 0px;">

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'app/models/product.model';
+import { DataService } from 'app/data.service';
 
 @Component({
     selector: 'productedit-cmp',
@@ -7,6 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ProductEditComponent implements OnInit{
+    products: Product[];
+
+    constructor(private dataService: DataService){}
+  
     ngOnInit(){
+    }
+
+    updateProduct(e){
+        this.dataService.putProduct(1)
+        .subscribe(data =>this.products = data);
+
     }
 }
