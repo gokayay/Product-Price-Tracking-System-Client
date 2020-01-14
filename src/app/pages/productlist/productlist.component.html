@@ -30,14 +30,14 @@
               <small>{{product.id}}</small>
             </h5>
           </div>
-          <div class="col-lg-3 mr-auto"> 
-            <div [routerLink]="['/productlist']">
+          <div class="col-lg-3 mr-auto" style="cursor: pointer;"> 
+            <div [routerLink]="['/productedit',product]">
             <h5>Edit
               <br>
               <small>Click</small>
             </h5></div>
           </div>
-          <div class="col-lg-3 mr-auto">
+          <div class="col-lg-3 mr-auto" style="cursor: pointer;">
             <div [routerLink]="['/table']">
             <h5>Price
               <br>

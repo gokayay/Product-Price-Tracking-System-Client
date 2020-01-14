@@ -5,12 +5,12 @@
         <h5 class="card-title">Edit Site</h5>
       </div>
       <div *ngIf="site" class="card-body">
-        <form (ngSubmit)="onSubmit()" [formGroup]="siteForm">
+        <form [formGroup]="siteForm">
           <div class="row">
             <div class="col-md-6">
     
                 <label>Site Id</label>
-                <input type="text" class="form-control" formControlName="formSiteId" disabled="" placeholder="Id here" value="{{site.id}}">
+                <input type="text" class="form-control" formControlName="formSiteId" disabled="" placeholder="Id here" name="formSiteId">
               
             </div>
             <div class="col-md-4 ml-auto">
@@ -23,7 +23,7 @@
             <div class="col-md-12">
              
                 <label>Site Name</label>
-                <input type="text" class="form-control" formControlName="formSiteName" placeholder="siteName here" value="{{site.siteName}}">
+                <input type="text" class="form-control" formControlName="formSiteName" placeholder="siteName here" name="formSiteName">
               </div>
             
           </div>
@@ -31,7 +31,7 @@
             <div class="col-md-12">
               
                 <label>Site Url</label>
-                <input type="text" class="form-control" formControlName="formSiteUrl"  placeholder="siteUrl here" value="{{site.siteUrl}}">
+                <input type="text" class="form-control" formControlName="formSiteUrl"  placeholder="siteUrl here" name="formSiteUrl">
               </div>
             
           </div>
@@ -39,7 +39,7 @@
             <div class="col-md-12">
               
                 <label>Site Image Url</label>
-                <input type="text" class="form-control"  formControlName="formSiteImg" placeholder="siteImg url here" value="{{site.siteImg}}">
+                <input type="text" class="form-control"  formControlName="formSiteImg" placeholder="siteImg url here" name="formSiteImg">
               
             </div>
           </div>
@@ -47,14 +47,14 @@
             <div class="col-md-12">
              
                 <label>Site's Xpath</label>
-                <input type="text" class="form-control textarea"  formControlName="formSiteXpath" placeholder="Xpath here" value="{{site.siteXpath}}">
+                <input type="text" class="form-control textarea"  formControlName="formSiteXpath" placeholder="Xpath here" name="formSiteXpath">
               
             </div>
           </div>
           <div class="row">
             <div class="col-md-6 text-center">
               <div class="update ml-auto mr-auto">
-                <button type="submit" class="btn btn-primary btn-round" (click)="updateSite($event,site)">Update Site</button>
+                <button type="submit" class="btn btn-primary btn-round" (click)="updateSite($event)">Update Site</button>
               </div>
             </div>
             <div class="col-md-6 text-center">

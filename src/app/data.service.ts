@@ -15,7 +15,8 @@ export class DataService {
   constructor(private _http: HttpClient) { }
 
   
-  private options = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
+
+  httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', }), responseType: 'text' as 'json' };
 
 
   //  Product
@@ -48,7 +49,7 @@ export class DataService {
   }
 
   putSite(id,Site) :Observable<Site[]>{
-    return this._http.put<Site[]>(`${environment.siteUrl}/${id}`, Site ,this.options);
+    return this._http.put<Site[]>(`${environment.siteUrl}/${id}`, Site ,this.httpOptions);
   }
 
   deleteSite(id) :Observable<Site[]>{

@@ -4,18 +4,18 @@
       <div class="card-header">
         <h5 class="card-title">Edit Product</h5>
       </div>
-      <div class="card-body">
+      <div class="card-body" *ngIf="product">
         <form>
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
                 <label>Product Id</label>
-                <input type="text" class="form-control" disabled="" placeholder="Id here" value="Id">
+                <input type="text" class="form-control" disabled="" placeholder="Id here" value="{{product.id}}">
               </div>
             </div>
             <div class="col-md-4 ml-auto">
               <div class="image" style="height: auto;">
-                <img src="./assets/img/jan-sendereks.jpg" alt="...">
+                <img src="{{product.productImg}}" alt="{{product.productImg}}">
               </div>
             </div>
           </div>
@@ -23,7 +23,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Product Name</label>
-                <input type="text" class="form-control" placeholder="Home Address" value="Product's Name here">
+                <input type="text" class="form-control" placeholder="Product's Name here" value="{{product.productName}}">
               </div>
             </div>
           </div>
@@ -31,7 +31,9 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Product Comment</label>
-                <textarea class="form-control textarea">Product's comment here. Lorem ipsum dolor sit amet.</textarea>
+                <input type="text" class="form-control textarea" 
+                placeholder="Product's comment here. Lorem ipsum dolor sit amet." 
+                value="{{product.productComment}}">
               </div>
             </div>
           </div>
@@ -39,7 +41,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label>Product Image Url</label>
-                <input type="text" class="form-control" placeholder="Home Address" value="Product's Url here">
+                <input type="text" class="form-control" placeholder="Product's Url here" value="{{product.productImg}}">
               </div>
             </div>
           </div>
