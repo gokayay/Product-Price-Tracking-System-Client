@@ -29,8 +29,8 @@ export class DataService {
     return this._http.get<Product[]>(`${environment.productUrl}/${id}`);
   }
 
-  putProduct(id) :Observable<Product[]>{
-    return this._http.put<Product[]>(`${environment.productUrl}/${id}`, Product);
+  putProduct(id, Product) :Observable<Product[]>{
+    return this._http.put<Product[]>(`${environment.productUrl}/${id}`, Product, this.httpOptions);
   }
 
   deleteProduct(id) :Observable<Product[]>{
@@ -67,8 +67,8 @@ export class DataService {
     return this._http.get<ProductAddress[]>(`${environment.productAddressUrl}/${id}`);
   }
 
-  putProductAddress(id) :Observable<ProductAddress[]>{
-    return this._http.put<ProductAddress[]>(`${environment.productAddressUrl}/${id}`, ProductAddress);
+  putProductAddress(id, ProductAddress) :Observable<ProductAddress[]>{
+    return this._http.put<ProductAddress[]>(`${environment.productAddressUrl}/${id}`, ProductAddress, this.httpOptions);
   }
 
   deleteProductAddress(id) :Observable<ProductAddress[]>{

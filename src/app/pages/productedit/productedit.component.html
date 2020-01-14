@@ -5,13 +5,13 @@
         <h5 class="card-title">Edit Product</h5>
       </div>
       <div class="card-body" *ngIf="product">
-        <form>
+        <form [formGroup]="productForm">
           <div class="row">
             <div class="col-md-6">
-              <div class="form-group">
+              
                 <label>Product Id</label>
-                <input type="text" class="form-control" disabled="" placeholder="Id here" value="{{product.id}}">
-              </div>
+                <input type="text" class="form-control" formControlName="formProductId" disabled="" placeholder="Id here" name="formProductId">
+              
             </div>
             <div class="col-md-4 ml-auto">
               <div class="image" style="height: auto;">
@@ -21,29 +21,33 @@
           </div>
           <div class="row">
             <div class="col-md-12">
-              <div class="form-group">
+            
                 <label>Product Name</label>
-                <input type="text" class="form-control" placeholder="Product's Name here" value="{{product.productName}}">
-              </div>
+                <input type="text" class="form-control" formControlName="formProductName" placeholder="Product's Name here" name="formProductName">
+             
             </div>
           </div>
           <div class="row">
             <div class="col-md-12">
-              <div class="form-group">
+           
                 <label>Product Comment</label>
                 <input type="text" class="form-control textarea" 
+                formControlName="formProductComment"
                 placeholder="Product's comment here. Lorem ipsum dolor sit amet." 
-                value="{{product.productComment}}">
-              </div>
+                name="formProductComment">
+              
             </div>
           </div>
           <div class="row">
             <div class="col-md-12">
-              <div class="form-group">
+             
                 <label>Product Image Url</label>
-                <input type="text" class="form-control" placeholder="Product's Url here" value="{{product.productImg}}">
+                <input type="text" class="form-control"                 
+                formControlName="formProductImg"
+                placeholder="Product's Image Url here" 
+                name="formProductImg">
               </div>
-            </div>
+            
           </div>
           <div class="row">
             <div class="col-md-6 text-center">

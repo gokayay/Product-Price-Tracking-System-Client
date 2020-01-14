@@ -4,56 +4,56 @@
       <div class="card-header">
         <h5 class="card-title">Edit Product's Path</h5>
       </div>
-      <div class="card-body">
-        <form>
+      <div class="card-body" *ngIf="productpath">
+        <form [formGroup]="productPathForm">
           <div class="row">
             <div class="col-md-6 pr-1">
-              <div class="form-group">
+              
                 <label>Product Path Id</label>
-                <input type="text" class="form-control" disabled="" placeholder="Id here" value="Id">
-              </div>
+                <input type="text" class="form-control" formControlName="formProductPathId" disabled="" placeholder="Id here" name="formProductPathId">
+              
             </div>
           </div>
           <div class="row">
             <div class="col-md-4">
-              <div class="form-group">
+              
                 <label>Product Id</label>
-                <input type="text" class="form-control" disabled="" placeholder="" value="Product's Id here">
-              </div>
+                <input type="text" class="form-control" formControlName="formProductProductId" disabled="" placeholder="Product Id here" name="formProductProductId">
+              
             </div>
             <div class="col-md-8">
-              <div class="form-group">
+              
                 <label>Product Name</label>
-                <input type="text" class="form-control" disabled="" placeholder="" value="Product's Name here">
-              </div>
+                <input type="text" class="form-control" disabled="" placeholder="Product's Name here" value="{{productpath.product.productName}}">
+              
             </div>
           </div>
           <div class="row">
             <div class="col-md-4">
-              <div class="form-group">
+              
                 <label>Site Id</label>
-                <input type="text" class="form-control" disabled="" placeholder="" value="Site's Id here">
-              </div>
+                <input type="text" class="form-control" disabled="" placeholder="Site's Id here" value="{{productpath.site.id}}">
+              
             </div>
             <div class="col-md-8">
-              <div class="form-group">
+              
                 <label>Site Name</label>
-                <input type="text" class="form-control" disabled="" placeholder="" value="Site's Name here">
-              </div>
+                <input type="text" class="form-control" disabled="" placeholder="Site's Name here" value="{{productpath.site.siteName}}">
+             
             </div>
           </div>
           <div class="row">
             <div class="col-md-12">
-              <div class="form-group">
+              
                 <label>Product's Path</label>
-                <textarea class="form-control textarea">Product's url from e-commerce sites here. Lorem ipsum dolor sit amet.</textarea>
-              </div>
+                <input type="text" class="form-control textarea" formControlName="formProductPath" placeholder="Product Path here" name="formProductPath">
+              
             </div>
           </div>
           <div class="row">
             <div class="col-md-6 text-center">
               <div class="update ml-auto mr-auto">
-                <button type="submit" class="btn btn-primary btn-round">Update Product Path</button>
+                <button (click)="updateProduct($event)" type="submit" class="btn btn-primary btn-round">Update Product Path</button>
               </div>
             </div>
             <div class="col-md-6 text-center">

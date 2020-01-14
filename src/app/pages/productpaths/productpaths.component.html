@@ -24,6 +24,9 @@
                 Site
               </th>
               <th>
+                Edit
+              </th>
+              <th>
                 ProductPath
               </th>
             </thead>
@@ -38,11 +41,13 @@
                 <td>
                   {{productpath.site.siteName}}
                 </td>
+                <td [routerLink]="['/productpathedit',productpath]" style="cursor: pointer;" >
+                  Edit
+                </td>
                 <a href="{{productpath.productPath}}"><td>
                   {{productpath.productPath}}
-                </td></a>
+                </td></a>   
               </tr>
-         
             </tbody>
           </table>
         </div>
