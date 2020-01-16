@@ -29,6 +29,11 @@ export class DataService {
     return this._http.get<Product[]>(`${environment.productUrl}/${id}`);
   }
 
+  postProduct(product : Product) :Observable<Product[]>{
+    console.log(product);
+    return this._http.post<Product[]>(environment.productUrl, product, this.httpOptions);
+  }
+
   putProduct(id, Product) :Observable<Product[]>{
     return this._http.put<Product[]>(`${environment.productUrl}/${id}`, Product, this.httpOptions);
   }
@@ -46,6 +51,11 @@ export class DataService {
 
   getOneSite(id) :Observable<Site[]>{
     return this._http.get<Site[]>(`${environment.siteUrl}/${id}`);
+  }
+
+  postSite(site : Site) :Observable<Site[]>{
+    console.log(site);
+    return this._http.post<Site[]>(environment.siteUrl, site, this.httpOptions);
   }
 
   putSite(id,Site) :Observable<Site[]>{

@@ -24,6 +24,8 @@ import { HomepageComponent } from 'app/pages/homepage/homepage.component';
 import { ProductEditComponent } from 'app/pages/productedit/productedit.component';
 import { SiteEditComponent } from 'app/pages/siteedit/siteedit.component';
 import { ProductPathEditComponent } from 'app/pages/productpathedit/productpathedit.component';
+import { CreateProductComponent } from 'app/pages/create/createproduct/createproduct.component';
+import { CreateSiteComponent } from 'app/pages/create/create-site/create-site.component';
 
 @NgModule({
   imports: [
@@ -48,7 +50,9 @@ import { ProductPathEditComponent } from 'app/pages/productpathedit/productpathe
     HomepageComponent,
     ProductEditComponent,
     SiteEditComponent,
-    ProductPathEditComponent
+    ProductPathEditComponent,
+    CreateProductComponent,
+    CreateSiteComponent
   ]
 })
 

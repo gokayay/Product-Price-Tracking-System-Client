@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-md-6">
+      <div class="card card-user">
+        <div class="card-header">
+          <h5 class="card-title">Create Site</h5>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="siteForm">
+            <div class="row">
+              <div class="col-md-6">
+      
+                  <label>Site Id</label>
+                  <input type="text" class="form-control" formControlName="formSiteId" disabled="" placeholder="Id here" name="formSiteId">
+                
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+               
+                  <label>Site Name</label>
+                  <input type="text" class="form-control" formControlName="formSiteName" placeholder="siteName here" name="formSiteName">
+                </div>
+              
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                
+                  <label>Site Url</label>
+                  <input type="text" class="form-control" formControlName="formSiteUrl"  placeholder="siteUrl here" name="formSiteUrl">
+                </div>
+              
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                
+                  <label>Site Image Url</label>
+                  <input type="text" class="form-control"  formControlName="formSiteImg" placeholder="siteImg url here" name="formSiteImg">
+                
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+               
+                  <label>Site's Xpath</label>
+                  <input type="text" class="form-control textarea"  formControlName="formSiteXpath" placeholder="Xpath here" name="formSiteXpath">
+                
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 text-center">
+                <div class="update ml-auto mr-auto">
+                  <button (click)="createSite($event)" 
+                  type="submit" class="btn btn-primary btn-round" 
+                  [routerLink]="['/sitelist']">
+                  Create Site</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

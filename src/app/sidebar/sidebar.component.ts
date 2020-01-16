@@ -26,6 +26,11 @@ export const ROUTES: RouteInfo[] = [
     { path: '/siteedit',      title: 'Edit Site',         icon:'nc-cart-simple',    class: '' },
     { path: '/productpathedit',   title: 'Edit Product Path',      icon:'nc-vector',    class: '' },
 
+    { path: '/homepage',   title: '.',      icon:'nc-simple-delete',    class: '' },
+
+    { path: '/createproduct',   title: 'Create Product',      icon:'nc-tag-content',    class: '' },
+    { path: '/create-site',   title: 'Create Site',      icon:'nc-cart-simple',    class: '' },
+
     //{ path: '/typography',    title: 'Typography',        icon:'nc-caps-small', class: '' },
 ];
 
