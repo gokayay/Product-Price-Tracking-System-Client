@@ -17,6 +17,7 @@ import { SiteEditComponent } from 'app/pages/siteedit/siteedit.component';
 import { ProductPathEditComponent } from 'app/pages/productpathedit/productpathedit.component';
 import { CreateProductComponent } from 'app/pages/create/createproduct/createproduct.component';
 import { CreateSiteComponent } from 'app/pages/create/create-site/create-site.component';
+import { CreateProductpathComponent } from 'app/pages/create/create-productpath/create-productpath.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'homepage',      component: HomepageComponent },
@@ -36,8 +37,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'productpathedit',    component: ProductPathEditComponent },
     { path: 'createproduct',    component: CreateProductComponent },
     { path: 'create-site',    component: CreateSiteComponent },
+    { path: 'create-productpath',    component: CreateProductpathComponent },
 
     
-
 
 ];

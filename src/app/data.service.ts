@@ -73,8 +73,13 @@ export class DataService {
     return this._http.get<ProductAddress[]>(environment.productAddressUrl);
   }
 
-  getOneProductAddress(id) :Observable<ProductAddress[]>{
-    return this._http.get<ProductAddress[]>(`${environment.productAddressUrl}/${id}`);
+  getOneProductAddress(id) :Observable<ProductAddress>{
+    return this._http.get<ProductAddress>(`${environment.productAddressUrl}/${id}`);
+  }
+
+  postProductAddress(productaddress : ProductAddress) :Observable<ProductAddress>{
+    console.log(productaddress);
+    return this._http.post<ProductAddress>(environment.productAddressUrl, productaddress, this.httpOptions);
   }
 
   putProductAddress(id, ProductAddress) :Observable<ProductAddress[]>{

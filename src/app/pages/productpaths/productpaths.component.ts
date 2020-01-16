@@ -18,6 +18,8 @@ export class ProductPathsComponent implements OnInit{
   
     ngOnInit(){
       this.dataService.getProductAddresses()
-      .subscribe(data =>this.productpaths = data);
+      .subscribe(data =>{
+        this.productpaths = data;
+      });
     }
 }

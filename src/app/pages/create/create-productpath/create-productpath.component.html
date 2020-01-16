@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-md-6">
+      <div class="card card-user">
+        <div class="card-header">
+          <h5 class="card-title">Create Product's Path</h5>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="productPathForm">
+            <div class="row">
+              <div class="col-md-6 pr-1">
+                
+                  <label>Product Path Id</label>
+                  <input type="text" class="form-control" formControlName="formProductPathId" disabled="" placeholder="Id here" name="formProductPathId">
+                
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                
+                  <label>Product Id</label>
+                  <input type="text" class="form-control" formControlName="formProductProductId" placeholder="Product Id here" name="formProductProductId">
+                
+              </div>
+              <div class="col-md-8">
+                
+                  <label>Product Name</label>
+                  <input type="text" class="form-control" formControlName="formProductName" disabled="" placeholder="Product Name here" name="formProductName">
+                
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                
+                  <label>Site Id</label>
+                  <input type="text" class="form-control"  formControlName="formProductSiteId" placeholder="Site Id here" name="formProductSiteId">
+                
+              </div>
+              <div class="col-md-8">
+                
+                  <label>Site Name</label>
+                  <input type="text" class="form-control" formControlName="formSiteName" disabled="" placeholder="Site Name here" name="formSiteName">
+               
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                
+                  <label>Product's Path</label>
+                  <input type="text" class="form-control textarea" formControlName="formProductPath" placeholder="Product Path here" name="formProductPath">
+                
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 text-center">
+                <div class="update ml-auto mr-auto">
+                  <button (click)="createProductPath($event)" 
+                  type="button" class="btn btn-primary btn-round"
+                  [routerLink]="['/productpaths']">
+                  Create Product Path</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
