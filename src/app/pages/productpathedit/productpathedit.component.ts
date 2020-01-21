@@ -20,7 +20,7 @@ export class ProductPathEditComponent implements OnInit {
     uptProductPath: ProductAddress = new ProductAddress();
 
 
-    updateProduct(e) {
+    updateProductPath(e) {
 
         this.uptProductPath.id = this.productPathForm.get('formProductPathId').value;
         this.uptProductPath.productPath = this.productPathForm.get('formProductPath').value;
@@ -29,6 +29,13 @@ export class ProductPathEditComponent implements OnInit {
             .subscribe(data => this.productpaths = data);
 
     }
+    deleteProductPath(e){
+
+        this.uptProductPath.id = this.productPathForm.get('formProductPathId').value;
+  
+        this.dataService.deleteProductAddress(this.uptProductPath.id)
+          .subscribe(data =>this.productpaths= data);
+      }
 
     ngOnInit() {
         this.route.paramMap.subscribe(paramMap => {

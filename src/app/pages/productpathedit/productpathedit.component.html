@@ -53,7 +53,7 @@
           <div class="row">
             <div class="col-md-6 text-center">
               <div class="update ml-auto mr-auto">
-                <button (click)="updateProduct($event)" 
+                <button (click)="updateProductPath($event)" 
                 type="submit" class="btn btn-primary btn-round"
                 [routerLink]="['/productpaths']">
                 Update Product Path</button>
@@ -61,7 +61,7 @@
             </div>
             <div class="col-md-6 text-center">
               <div class="update ml-auto mr-auto">
-                <button 
+                <button (click)="deleteProductPath($event)"
                 type="delete" class="btn btn-danger btn-round"
                 [routerLink]="['/productpaths']">
                 Delete Product Path</button>

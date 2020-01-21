@@ -32,6 +32,15 @@ export class ProductEditComponent implements OnInit{
         .subscribe(data =>this.products = data);
 
     }
+
+
+    deleteProduct(e){
+
+      this.uptProduct.id = this.productForm.get('formProductId').value;
+
+      this.dataService.deleteProduct(this.uptProduct.id)
+        .subscribe(data =>this.products = data);
+    }
   
     ngOnInit(){
         this.route.paramMap.subscribe( paramMap =>{

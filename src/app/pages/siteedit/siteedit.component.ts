@@ -41,6 +41,15 @@ export class SiteEditComponent implements OnInit{
         }
 
 
+    deleteSite(e){
+
+      this.uptSite.id = this.siteForm.get('formSiteId').value;
+
+      this.dataService.deleteSite(this.uptSite.id)
+        .subscribe(data =>this.sites = data);
+    }
+
+
     ngOnInit(){
         this.route.paramMap.subscribe( paramMap =>{
             this.site = paramMap["params"]
