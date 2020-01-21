@@ -3,6 +3,8 @@ import { DataService } from 'app/data.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProductAddress } from 'app/models/productaddress.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Product } from 'app/models/product.model';
+import { Site } from 'app/models/site.model';
 
 @Component({
   selector: 'app-create-productpath',
@@ -11,24 +13,25 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class CreateProductpathComponent implements OnInit {
 
-  constructor(private dataService: DataService, private route: ActivatedRoute) { }
+  constructor(private dataService: DataService, private route: ActivatedRoute) { 
+      this.createdProductPath.product = this.createdProduct;
+      this.createdProductPath.site = this.createdSite;
+  }
 
   productpaths: ProductAddress[];
   productpath: ProductAddress = new ProductAddress();
   productPathForm: FormGroup;
-    createdProductPath : ProductAddress =  new ProductAddress();
-
+  createdProductPath : ProductAddress =  new ProductAddress();
+  createdProduct : Product =  new Product();
+  createdSite : Site =  new Site();
+  
 
     createProductPath(e){
-        console.log(this.productPathForm)
-        // aşağıdan get ile alamıyor burayı incele 
         this.createdProductPath.productPath = this.productPathForm.get('formProductPath').value;
         this.createdProductPath.product.id = this.productPathForm.get('formProductProductId').value;
         this.createdProductPath.site.id = this.productPathForm.get('formProductSiteId').value;
-        this.createdProductPath.product.id = this.productPathForm.get('formProductSiteId').value;
 
-
-        console.log(this.createdProductPath);
+        console.log(this.createdProductPath.productPath);
         this.dataService.postProductAddress( this.createdProductPath)
         .subscribe(data =>this.productpath = data);
     }   
@@ -37,27 +40,27 @@ export class CreateProductpathComponent implements OnInit {
     ngOnInit() {
       this.productPathForm = new FormGroup({
         formProductPathId: new FormControl(
-            { value: this.productpath.id, disabled: false },
+            { value:"", disabled: false },
             [Validators.required]
         ),
         formProductPath: new FormControl(
-            { value: this.productpath.productPath, disabled: false },
+            { value:"", disabled: false },
             [Validators.required]
         ),
         formProductProductId: new FormControl(
-            { value: this.productpath.product.id, disabled: false },
+            { value:"", disabled: false },
             [Validators.required]
         ),
         formProductName: new FormControl(
-            { value: this.productpath.product.productName, disabled: false },
+            { value:"", disabled: false },
             [Validators.required]
         ),
         formProductSiteId: new FormControl(
-            { value: this.productpath.site.id, disabled: false },
+            { value:"", disabled: false },
             [Validators.required]
         ),
         formSiteName: new FormControl(
-            { value: this.productpath.site.siteName, disabled: false },
+            { value:"", disabled: false },
             [Validators.required]
         ),
     });
