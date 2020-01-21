@@ -31,9 +31,7 @@ export class CreateProductpathComponent implements OnInit {
         console.log(this.createdProductPath);
         this.dataService.postProductAddress( this.createdProductPath)
         .subscribe(data =>this.productpath = data);
-
-    
-    }
+    }   
 
 
     ngOnInit() {
