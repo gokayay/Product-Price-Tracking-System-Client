@@ -21,7 +21,7 @@ export class CreateProductpathComponent implements OnInit {
 
     createProductPath(e){
         console.log(this.productPathForm)
-        // aşağıdan get ile alamıyor burayı incele
+        // aşağıdan get ile alamıyor burayı incele 
         this.createdProductPath.productPath = this.productPathForm.get('formProductPath').value;
         this.createdProductPath.product.id = this.productPathForm.get('formProductProductId').value;
         this.createdProductPath.site.id = this.productPathForm.get('formProductSiteId').value;
