@@ -21,8 +21,8 @@ export class DataService {
 
   //  Product
 
-  getProducts() :Observable<Product[]>{
-    return this._http.get<Product[]>(environment.productUrl);
+  getProducts(page) :Observable<Product[]>{
+    return this._http.get<Product[]>(`${environment.productUrl}/?page=${page}&size=3&sort=id,ASC`);
   }
 
   getOneProduct(id) :Observable<Product[]>{
