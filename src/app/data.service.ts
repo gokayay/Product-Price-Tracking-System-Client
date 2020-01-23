@@ -45,8 +45,8 @@ export class DataService {
 
   //  Site
    
-  getSites() : Observable<Site[]>{
-    return this._http.get<Site[]>(environment.siteUrl);
+  getSites(page) : Observable<Site[]>{
+    return this._http.get<Site[]>(`${environment.siteUrl}/?page=${page}&size=3&sort=id,ASC`);
   }
 
   getOneSite(id) :Observable<Site[]>{
