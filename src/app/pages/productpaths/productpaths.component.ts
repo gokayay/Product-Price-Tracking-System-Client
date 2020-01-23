@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from 'app/data.service';
-import { Product } from 'app/models/product.model';
 import { ProductAddress } from 'app/models/productaddress.model';
 
 
@@ -13,11 +12,19 @@ import { ProductAddress } from 'app/models/productaddress.model';
 export class ProductPathsComponent implements OnInit{
    
     productpaths: ProductAddress[];
+    @Input() page : string;
 
     constructor(private dataService: DataService){}
   
+
+    passPage(paged){
+      console.log(paged);
+      this.dataService.getProductAddresses(paged)
+      .subscribe(data =>this.productpaths = data);
+    }
+
     ngOnInit(){
-      this.dataService.getProductAddresses()
+      this.dataService.getProductAddresses(this.page)
       .subscribe(data =>{
         this.productpaths = data;
       });

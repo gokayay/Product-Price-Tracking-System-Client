@@ -14,7 +14,6 @@ export class DataService {
 
   constructor(private _http: HttpClient) { }
 
-  
 
   httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', }), responseType: 'text' as 'json' };
 
@@ -69,8 +68,8 @@ export class DataService {
 
   //  ProductAddresses
 
-  getProductAddresses() : Observable<ProductAddress[]>{
-    return this._http.get<ProductAddress[]>(environment.productAddressUrl);
+  getProductAddresses(page) : Observable<ProductAddress[]>{
+    return this._http.get<ProductAddress[]>(`${environment.productAddressUrl}/?page=${page}&size=3&sort=id,ASC`);
   }
 
   getOneProductAddress(id) :Observable<ProductAddress>{
@@ -93,8 +92,8 @@ export class DataService {
 
   //  Price
 
-  getPrices() :Observable<Price[]>{
-    return this._http.get<Price[]>(environment.priceUrl);
+  getPrices(page,size) :Observable<Price[]>{
+    return this._http.get<Price[]>(`${environment.priceUrl}/?page=${page}&size=${size}&sort=id,ASC`);
   }
 
   getOnePrice(id) :Observable<Price[]>{
