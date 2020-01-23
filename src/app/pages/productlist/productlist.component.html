@@ -5,13 +5,6 @@
 </div>
 <div class="row"><p></p><p></div>
 
-  <div class="row">
-
-    <p>Default pagination:    </p>
-    <ngb-pagination (click)="passPage($event,page)" [collectionSize]="100" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
-    <pre>Current page: {{page} }</pre>
-  </div>
-
 <div class="row">
 
 <div class="col-md-4" *ngFor = 'let product of products'>
@@ -56,5 +49,15 @@
     </div>
   </div>
 </div> 
+</div>
+
+<div class="d-flex justify-content-center">
+  <ngb-pagination 
+  (pageChange)="passPage($event)" 
+  [collectionSize]="100" 
+  [(page)]="page"></ngb-pagination>
+</div>
+<div class="row">
+  
 </div>
 

@@ -14,22 +14,16 @@ export class ProductListComponent implements OnInit{
     products: Product[];
     @Input() page: string;
 
-    passPage(e,pageFromHtml){
-      this.page = pageFromHtml;
-      console.log(this.page);
-
+    passPage(paged){
+      console.log(paged);
+      this.dataService.getProducts(paged)
+      .subscribe(data =>this.products = data);
     }
  
     constructor(private dataService: DataService){}
   
     ngOnInit(){
-      this.page="1";
       this.dataService.getProducts(this.page)
       .subscribe(data =>this.products = data);
-    }
-
-    ngOnChanges(changes : SimpleChanges){
-      console.log(changes);
-      const pageValue = changes['date'];
     }
 }
