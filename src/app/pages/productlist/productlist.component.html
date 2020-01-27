@@ -53,8 +53,9 @@
 
 <div class="d-flex justify-content-center">
   <ngb-pagination 
-  (pageChange)="passPage($event)" 
-  [collectionSize]="100" 
+  (pageChange)="passPage($event)"
+  [(pageSize)]="pageSize" 
+  [(collectionSize)]="size" 
   [(page)]="page"></ngb-pagination>
 </div>
 
