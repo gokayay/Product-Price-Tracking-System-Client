@@ -6,6 +6,8 @@ import { environment } from 'environments/environment';
 import { Site } from './models/site.model';
 import { ProductAddress } from './models/productaddress.model';
 import { Price } from './models/price.model';
+import { map } from 'rxjs/operators';
+import { PageProduct } from './models/page-models/page-product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,9 +22,15 @@ export class DataService {
 
   //  Product
 
-  getProducts(page) :Observable<Product[]>{
-    return this._http.get<Product[]>(`${environment.productUrl}/?page=${page}&size=3&sort=id,ASC`);
+  getProducts(page,size) :Observable<PageProduct>{
+    return this._http.get<PageProduct>(`${environment.productUrl}/?page=${page}&size=${size}&sort=id,ASC`).pipe(
+      map(response => {
+        const data = response;
+        console.log(data.content);
+        return data ;
+      }));
   }
+  
 
   getOneProduct(id) :Observable<Product[]>{
     return this._http.get<Product[]>(`${environment.productUrl}/${id}`);

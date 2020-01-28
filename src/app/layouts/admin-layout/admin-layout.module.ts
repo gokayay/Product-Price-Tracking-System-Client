@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 import { AdminLayoutRoutes } from './admin-layout.routing';
 
@@ -34,7 +34,8 @@ import { CreateProductpathComponent } from 'app/pages/create/create-productpath/
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatPaginatorModule
   ],
   declarations: [
     DashboardComponent,

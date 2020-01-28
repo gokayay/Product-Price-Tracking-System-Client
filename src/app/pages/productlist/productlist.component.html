@@ -7,7 +7,7 @@
 
 <div class="row">
 
-<div class="col-md-4" *ngFor = 'let product of products'>
+<div class="col-md-4" *ngFor = 'let product of pageproducts.content'>
   <div class="card card-user">
     <div class="image" style="height: auto;">
       <img src="{{product.productImg}}" alt="{{product.productName}}">
@@ -51,11 +51,25 @@
 </div> 
 </div>
 
-<div class="d-flex justify-content-center">
-  <ngb-pagination 
-  (pageChange)="passPage($event)"
-  [(pageSize)]="pageSize" 
-  [(collectionSize)]="size" 
-  [(page)]="page"></ngb-pagination>
+  <div class="d-flex justify-content-center">
+    <ngb-pagination 
+    (pageChange)="passPage($event)"
+    [(pageSize)]="pageSize" 
+    [(collectionSize)]="size" 
+    [(page)]="page"></ngb-pagination>
+  
+    Records per page
+      <input [(ngModel)]="pageClient" (keydown.enter)="pageSizeInput($event)" 
+      class="form-control" type="text" style="height: fit-content; width:50px;">
+  
 </div>
 
+  <!--
+<div>
+  <mat-paginator [(length)]="size"
+              [pageSize]="3" 
+              [pageSizeOptions]="[3, 6, 12, 120]"
+              [(page)]="page = passPage($event)">
+</mat-paginator>
+</div>
+-->
