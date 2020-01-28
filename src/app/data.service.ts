@@ -26,11 +26,19 @@ export class DataService {
     return this._http.get<PageProduct>(`${environment.productUrl}/?page=${page}&size=${size}&sort=id,ASC`).pipe(
       map(response => {
         const data = response;
-        console.log(data.content);
+        console.log(data);
         return data ;
       }));
   }
-  
+
+  getSearchingProducts(productname,page,size):Observable<PageProduct>{
+    return this._http.get<PageProduct>(`${environment.productSearchUrl}?product_name=${productname}&page=${page}&size=${size}&sort=id,ASC`).pipe(
+      map(response => {
+        const data = response;
+        console.log(data);
+        return data ;
+      }));
+  }
 
   getOneProduct(id) :Observable<Product[]>{
     return this._http.get<Product[]>(`${environment.productUrl}/${id}`);

@@ -2,6 +2,20 @@
   <div class="col-md-4" [routerLink]="['/createproduct']">
     <button type="button" class="btn btn-success btn-round" style="margin-top: 0px;">Add A Product here</button>
   </div>
+  <div class="col-md-4 ml-auto">
+    <form>
+      <div class="input-group no-border">
+        <input type="text" 
+        [(ngModel)]="searchKey" (keydown.enter)="searching($event)"
+        class="form-control" placeholder="Search...">
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <i class="nc-icon nc-zoom-split"></i>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
 <div class="row"><p></p><p></div>
 
@@ -56,20 +70,13 @@
     (pageChange)="passPage($event)"
     [(pageSize)]="pageSize" 
     [(collectionSize)]="size" 
-    [(page)]="page"></ngb-pagination>
-  
-    Records per page
+    [(page)]="page">
+  </ngb-pagination>
+      <label style="font-size: .8571em;
+      color: #9a9a9a;
+      margin: 5px;">Records per page: </label>
       <input [(ngModel)]="pageClient" (keydown.enter)="pageSizeInput($event)" 
+      value={{pageSize}}
       class="form-control" type="text" style="height: fit-content; width:50px;">
-  
+   
 </div>
-
-  <!--
-<div>
-  <mat-paginator [(length)]="size"
-              [pageSize]="3" 
-              [pageSizeOptions]="[3, 6, 12, 120]"
-              [(page)]="page = passPage($event)">
-</mat-paginator>
-</div>
--->

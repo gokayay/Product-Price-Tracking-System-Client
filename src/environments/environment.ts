@@ -7,6 +7,7 @@ export const environment = {
   production: false,
 
   productUrl: 'http://localhost:8081/product',
+  productSearchUrl: 'http://localhost:8081/product/product-search',
   priceUrl: 'http://localhost:8081/price',
   productAddressUrl: 'http://localhost:8081/productaddress',
   siteUrl: 'http://localhost:8081/site'
