@@ -8,6 +8,10 @@ import { ProductAddress } from './models/productaddress.model';
 import { Price } from './models/price.model';
 import { map } from 'rxjs/operators';
 import { PageProduct } from './models/page-models/page-product.model';
+import { PageSite } from './models/page-models/page-site.model';
+import { PageProductAddress } from './models/page-models/page-productaddress.model';
+import { PagePrice } from './models/page-models/page-price.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -60,8 +64,22 @@ export class DataService {
 
   //  Site
    
-  getSites(page) : Observable<Site[]>{
-    return this._http.get<Site[]>(`${environment.siteUrl}/?page=${page}&size=3&sort=id,ASC`);
+  getSites(page,size) :Observable<PageSite>{
+    return this._http.get<PageSite>(`${environment.siteUrl}/?page=${page}&size=${size}&sort=id,ASC`).pipe(
+      map(response => {
+        const data = response;
+        console.log(data);
+        return data ;
+      }));
+  }
+
+  getSearchingSites(sitename,page,size):Observable<PageSite>{
+    return this._http.get<PageSite>(`${environment.siteSearchUrl}?site_name=${sitename}&page=${page}&size=${size}&sort=id,ASC`).pipe(
+      map(response => {
+        const data = response;
+        console.log(data);
+        return data ;
+      }));
   }
 
   getOneSite(id) :Observable<Site[]>{
@@ -84,8 +102,22 @@ export class DataService {
 
   //  ProductAddresses
 
-  getProductAddresses(page) : Observable<ProductAddress[]>{
-    return this._http.get<ProductAddress[]>(`${environment.productAddressUrl}/?page=${page}&size=3&sort=id,ASC`);
+  getProductAddresses(page,size) :Observable<PageProductAddress>{
+    return this._http.get<PageProductAddress>(`${environment.productAddressUrl}/?page=${page}&size=${size}&sort=id,ASC`).pipe(
+      map(response => {
+        const data = response;
+        console.log(data);
+        return data ;
+      }));
+  }
+
+  getSearchingProductAddress(productpath,page,size):Observable<PageProductAddress>{
+    return this._http.get<PageProductAddress>(`${environment.productAddressSearchUrl}?product_path=${productpath}&page=${page}&size=${size}&sort=id,ASC`).pipe(
+      map(response => {
+        const data = response;
+        console.log(data);
+        return data ;
+      }));
   }
 
   getOneProductAddress(id) :Observable<ProductAddress>{
@@ -108,8 +140,22 @@ export class DataService {
 
   //  Price
 
-  getPrices(page,size) :Observable<Price[]>{
-    return this._http.get<Price[]>(`${environment.priceUrl}/?page=${page}&size=${size}&sort=id,ASC`);
+  getPrices(page,size) :Observable<PagePrice>{
+    return this._http.get<PagePrice>(`${environment.priceUrl}/?page=${page}&size=${size}&sort=id,ASC`).pipe(
+      map(response => {
+        const data = response;
+        console.log(data);
+        return data ;
+      }));
+  }
+
+  getSearchingPrices(pricename,page,size):Observable<PagePrice>{
+    return this._http.get<PagePrice>(`${environment.priceSearchUrl}?price=${pricename ? pricename : 100000}&page=${page}&size=${size}&sort=id,ASC`).pipe(
+      map(response => {
+        const data = response;
+        console.log(data);
+        return data ;
+      }));
   }
 
   getOnePrice(id) :Observable<Price[]>{

@@ -4,6 +4,20 @@
     [routerLink]="['/create-productpath']"
     class="btn btn-success btn-round" style="margin-top: 0px;">Add A Product Path here</button>
   </div>
+  <div class="col-md-4 ml-auto">
+    <form>
+      <div class="input-group no-border">
+        <input type="text" 
+        [(ngModel)]="searchKey" (keydown.enter)="searching($event)"
+        class="form-control" placeholder="Search...">
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <i class="nc-icon nc-zoom-split"></i>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
 <div class="row"><p></p><p></div>
 <div class="row">
@@ -33,7 +47,7 @@
               </th>
             </thead>
             <tbody >
-              <tr *ngFor ='let productpath of productpaths'>
+              <tr *ngFor ='let productpath of pageproductaddresses.content'>
                 <td>
                   {{productpath.id}}
                 </td>
@@ -58,10 +72,19 @@
   </div>
 </div>
 
-  <div class="d-flex justify-content-center">
-    <ngb-pagination 
-    (pageChange)="passPage($event)" 
-    [collectionSize]="100" 
-    [(page)]="page"></ngb-pagination>
-  </div>
+<div class="d-flex justify-content-center">
+  <ngb-pagination 
+  (pageChange)="passPage($event)"
+  [(pageSize)]="pageSize" 
+  [(collectionSize)]="size" 
+  [(page)]="page">
+</ngb-pagination>
+    <label style="font-size: .8571em;
+    color: #9a9a9a;
+    margin: 5px;">Records per page: </label>
+    <input [(ngModel)]="pageClient" (keydown.enter)="pageSizeInput($event)" 
+    value={{pageSize}}
+    class="form-control" type="text" style="height: fit-content; width:50px;">
+ 
+</div>
  

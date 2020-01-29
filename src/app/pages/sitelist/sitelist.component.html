@@ -3,11 +3,25 @@
         <button type="button" class="btn btn-success btn-round" style="margin-top: 0px;" 
         [routerLink]="['/create-site']">Add A Site here</button>
       </div>
+      <div class="col-md-4 ml-auto">
+        <form>
+          <div class="input-group no-border">
+            <input type="text" 
+            [(ngModel)]="searchKey" (keydown.enter)="searching($event)"
+            class="form-control" placeholder="Search...">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <i class="nc-icon nc-zoom-split"></i>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
 </div>
 <div class="row"><p></p><p></div>
 <div class="row">
 
-    <div class="col-md-4" *ngFor = 'let site of sites'>
+    <div class="col-md-4" *ngFor = 'let site of pagesites.content'>
       <div class="card card-user">
         <div class="image" style="height: auto;">
           <img src="{{site.siteImg}}" alt="{{site.siteName}}">
@@ -57,7 +71,16 @@
 
 <div class="d-flex justify-content-center">
   <ngb-pagination 
-  (pageChange)="passPage($event)" 
-  [collectionSize]="100" 
-  [(page)]="page"></ngb-pagination>
+  (pageChange)="passPage($event)"
+  [(pageSize)]="pageSize" 
+  [(collectionSize)]="size" 
+  [(page)]="page">
+</ngb-pagination>
+    <label style="font-size: .8571em;
+    color: #9a9a9a;
+    margin: 5px;">Records per page: </label>
+    <input [(ngModel)]="pageClient" (keydown.enter)="pageSizeInput($event)" 
+    value={{pageSize}}
+    class="form-control" type="text" style="height: fit-content; width:50px;">
+ 
 </div>
