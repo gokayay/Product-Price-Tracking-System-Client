@@ -22,6 +22,7 @@ export class ProductListComponent implements OnInit{
     @Input() pageSize: string;  // size of items per page
     @Input() searchKey : string; // search key 
     
+
     pageSizeInput(e){
       console.log(e.target.value);
       this.pageSize=e.target.value;
@@ -50,7 +51,6 @@ export class ProductListComponent implements OnInit{
       });
     }
  
-  
     ngOnInit(){
       this.pageSize="3";
       this.searchKey="";

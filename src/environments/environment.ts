@@ -9,7 +9,7 @@ export const environment = {
   productUrl: 'http://localhost:8081/product',
   productSearchUrl: 'http://localhost:8081/product/product-search',
   priceUrl: 'http://localhost:8081/price',
-  //priceSearchUrl: 'http://localhost:8081/price/price-search',
+  priceByProductUrl: 'http://localhost:8081/price/prices-by-product/',
   productAddressUrl: 'http://localhost:8081/productaddress',
   productAddressSearchUrl:'http://localhost:8081/productaddress/product-address-search',
   siteUrl: 'http://localhost:8081/site',

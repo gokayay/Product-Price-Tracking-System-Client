@@ -1,7 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Price } from 'app/models/price.model';
 import { DataService } from 'app/data.service';
 import { PagePrice } from 'app/models/page-models/page-price.model';
+import { ActivatedRoute } from '@angular/router';
+import { Product } from 'app/models/product.model';
 
 
 @Component({
@@ -18,10 +20,9 @@ export class TableComponent implements OnInit{
     @Input() size: string;  // size of all items
     @Input() pageSize: string;  // size of items per page
     @Input() searchKey : string; // search key 
-    
+    product : Product = new Product; // for specific product's price
 
-    constructor(private dataService: DataService){
-      this.size = "100";
+    constructor(private dataService: DataService, private route :ActivatedRoute){
     }
 
     
@@ -41,19 +42,24 @@ export class TableComponent implements OnInit{
         console.log(this.pageprices);
       });
     }
-  /*
-    searching(e){
-      console.log(e.target.value);
-      this.searchKey = e.target.value;
-      this.dataService.getSearchingPrices(e.target.value, 0, this.pageSize)
+  
+    searching(product_id){
+      this.dataService.getSearchingPrices(product_id, 0, this.pageSize)
       .subscribe(data =>{this.pageprices = data;
         this.size=this.pageprices.totalElements;
         console.log(this.pageprices);
       });
     }
-  */
+  
   
     ngOnInit(){
+      this.route.paramMap.subscribe( paramMap =>{
+        this.product = paramMap["params"];
+
+       console.log(this.product);
+       this.searching(this.product.id);
+      });
+
       this.pageSize="100";
       this.searchKey="";
       this.dataService.getPrices(this.page,this.pageSize)
@@ -61,4 +67,5 @@ export class TableComponent implements OnInit{
                         this.size=this.pageprices.totalElements;
                         });
     }
+
 }
