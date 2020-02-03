@@ -35,14 +35,13 @@ export class TableComponent implements OnInit{
   
     passPage(pageNum){
       console.log(pageNum);
-      console.log(this.searchKey);
-      this.dataService.getSearchingPrices(this.searchKey,pageNum, this.pageSize)
+      this.dataService.getPrices(pageNum, this.pageSize)
       .subscribe(data =>{this.pageprices = data;
         this.size=this.pageprices.totalElements;
         console.log(this.pageprices);
       });
     }
-  
+  /*
     searching(e){
       console.log(e.target.value);
       this.searchKey = e.target.value;
@@ -52,12 +51,12 @@ export class TableComponent implements OnInit{
         console.log(this.pageprices);
       });
     }
-  
+  */
   
     ngOnInit(){
-      this.pageSize="5";
+      this.pageSize="100";
       this.searchKey="";
-      this.dataService.getSearchingPrices(this.searchKey,this.page,this.pageSize)
+      this.dataService.getPrices(this.page,this.pageSize)
       .subscribe(data =>{this.pageprices = data;
                         this.size=this.pageprices.totalElements;
                         });

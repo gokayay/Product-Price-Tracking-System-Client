@@ -148,16 +148,16 @@ export class DataService {
         return data ;
       }));
   }
-
+/*
   getSearchingPrices(pricename,page,size):Observable<PagePrice>{
-    return this._http.get<PagePrice>(`${environment.priceSearchUrl}?price=${pricename ? pricename : 100000}&page=${page}&size=${size}&sort=id,ASC`).pipe(
+    return this._http.get<PagePrice>(`${environment.priceSearchUrl}?product_name=${pricename}&page=${page}&size=${size}&sort=id,ASC`).pipe(
       map(response => {
         const data = response;
         console.log(data);
         return data ;
       }));
   }
-
+*/
   getOnePrice(id) :Observable<Price[]>{
     return this._http.get<Price[]>(`${environment.priceUrl}/${id}`);
   }
