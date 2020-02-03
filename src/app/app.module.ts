@@ -2,6 +2,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from "ngx-toastr";
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 import { SidebarModule } from './sidebar/sidebar.module';
 import { FooterModule } from './shared/footer/footer.module';
@@ -30,7 +32,7 @@ import { DataService } from './data.service';
     NavbarModule,
     ToastrModule.forRoot(),
     FooterModule,
-    FixedPluginModule
+    FixedPluginModule,
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

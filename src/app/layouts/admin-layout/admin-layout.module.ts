@@ -27,6 +27,7 @@ import { ProductPathEditComponent } from 'app/pages/productpathedit/productpathe
 import { CreateProductComponent } from 'app/pages/create/createproduct/createproduct.component';
 import { CreateSiteComponent } from 'app/pages/create/create-site/create-site.component';
 import { CreateProductpathComponent } from 'app/pages/create/create-productpath/create-productpath.component';
+import { PricesByProductComponent } from 'app/pages/specific-prices/prices-by-products/prices-by-product/prices-by-product.component';
 
 @NgModule({
   imports: [
@@ -55,7 +56,8 @@ import { CreateProductpathComponent } from 'app/pages/create/create-productpath/
     ProductPathEditComponent,
     CreateProductComponent,
     CreateSiteComponent,
-    CreateProductpathComponent
+    CreateProductpathComponent,
+    PricesByProductComponent
   ]
 })
 

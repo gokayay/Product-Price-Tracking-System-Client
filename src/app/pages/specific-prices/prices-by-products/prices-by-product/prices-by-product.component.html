@@ -1,0 +1,102 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="card card-chart" *ngIf ="product">
+      <div class="card-header">
+        <h5 class="card-title"> {{product.productName}}</h5>
+        <p class="card-category"> {{product.productComment}}</p>
+      </div>
+      <div class="card-body">
+        <canvas id="speedChart" width="400" height="100"></canvas>
+      </div>
+      <div class="card-footer">
+        <div class="chart-legend">
+          <i class="fa fa-circle text-info"></i> Hepsiburada
+          <i class="fa fa-circle text-warning"></i> Trendyol
+        </div>
+        <hr/>
+        <div class="card-stats">
+          <i class="fa fa-check"></i> Data information certified
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4" *ngIf = "product">
+    <div class="card card-user">
+      <div class="image" style="height: auto;">
+        <img src="{{product.productImg}}" alt="{{product.productName}}">
+      </div>
+    </div>
+  </div> 
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Price List</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                  Id
+                </th>
+                <th>
+                  Product
+                </th>
+                <th>
+                  Site
+                </th>
+                <th>
+                  Date
+                </th>
+                <th class="text-right">
+                  Price
+                </th>
+              </thead>
+              <tbody >
+                <tr *ngFor ='let price of pageprices.content'>
+                  <td>
+                    {{price.id}}
+                  </td>
+                  <td>
+                    {{price.product.productName}}
+                  </td>
+                  <td>
+                    {{price.site.siteName}}
+                  </td>
+                  <td>
+                    {{price.date}}
+                  </td>
+                  <td class="text-right">
+                    {{price.price}}
+                  </td>
+                </tr>
+           
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div class="d-flex justify-content-center">
+    <ngb-pagination
+    [rotate]="true" [boundaryLinks]="true" 
+    (pageChange)="passPage($event)"
+    [(pageSize)]="pageSize" 
+    [(collectionSize)]="size" 
+    [(page)]="page">
+  </ngb-pagination
+  >
+      <label style="font-size: .8571em;
+      color: #9a9a9a;
+      margin: 5px;">Records per page: </label>
+      <input [(ngModel)]="pageClient" (keydown.enter)="pageSizeInput($event)" 
+      value={{pageSize}}
+      class="form-control" type="text" style="height: fit-content; width:50px;">
+   
+  </div>
+  
