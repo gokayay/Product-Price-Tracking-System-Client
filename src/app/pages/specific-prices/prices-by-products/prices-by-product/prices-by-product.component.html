@@ -5,19 +5,11 @@
         <h5 class="card-title"> {{product.productName}}</h5>
         <p class="card-category"> {{product.productComment}}</p>
       </div>
-      <div class="card-body">
-        <canvas id="speedChart" width="400" height="100"></canvas>
-      </div>
-      <div class="card-footer">
-        <div class="chart-legend">
-          <i class="fa fa-circle text-info"></i> Hepsiburada
-          <i class="fa fa-circle text-warning"></i> Trendyol
-        </div>
-        <hr/>
-        <div class="card-stats">
-          <i class="fa fa-check"></i> Data information certified
-        </div>
-      </div>
+  
+  </div>
+  <div class="chart-wrapper" style="margin-bottom: 20px;">
+
+    <canvas id="canvas" width="400" height="175">{{chart}}</canvas>
     </div>
   </div>
   <div class="col-md-4" *ngIf = "product">
@@ -28,6 +20,7 @@
     </div>
   </div> 
 </div>
+
 
 <div class="row">
     <div class="col-md-12">
@@ -67,7 +60,7 @@
                     {{price.site.siteName}}
                   </td>
                   <td>
-                    {{price.date}}
+                    {{price.date | date :'dd/MM/yyyy'}}
                   </td>
                   <td class="text-right">
                     {{price.price}}

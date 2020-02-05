@@ -25,6 +25,10 @@ export const ROUTES: RouteInfo[] = [
     { path: '/createproduct',   title: 'Create Product',      icon:'nc-tag-content',    class: '' },
     { path: '/create-site',   title: 'Create Site',      icon:'nc-cart-simple',    class: '' },
     { path: '/create-productpath',   title: 'Create Product Path',       icon:'nc-vector',    class: '' },
+
+    { path: '/line-chart',   title: 'Line Chart',       icon:'nc-bank',    class: '' },
+
+
 ];
 
 @Component({
