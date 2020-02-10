@@ -24,7 +24,10 @@ export class PricesByProductComponent implements OnInit {
   @Input() searchKey : string; // search key 
   product : Product = new Product; // for specific product's price
   chart: Chart;
+  chart2: Chart;
   dates: any = [];
+  allprices: any = [];
+
 
   pageSizeInput(e){
     this.pageSize=e.target.value;
@@ -59,34 +62,50 @@ export class PricesByProductComponent implements OnInit {
         // BUG
         //
 
+        console.log(this.prices);
         console.log(this.prices.map(data=> data.date.toLocaleString()));
         //date'leri tutmak için
         for (let price of this.prices.values()) {
-          this.dates.push(price.date);
+          let nDate = new Date(price.date);
+          this.dates.push(nDate.toLocaleDateString());
         }
 
 
         // E-Ticaret Siteleri için DataSet Ayarlama
         for (let price of this.prices.values()) {
-          if(price.site.id==1){
+          if(price.site.id==2){
             //Hepsiburada
+            this.priceHb.price=price.price;
           }
         }
+
+        console.log(this.priceHb);
 
         //FOR TOMORROW
         // bunun yerine date'ler önceki 7 günü alıp labellenecek!
 
+
+        let labels = this.prices.map(data => data.date);
+        this.allprices = this.prices.map(data => data.price);
+
+        console.log(labels);
+        console.log(this.allprices);
+
         this.chart = new Chart('canvas', { // for chart
           type: 'line',
           data: {
-            labels: this.dates, 
-            datasets: [
-              { data: [85, 72, 78, 75, 77, 75], label: 'Hepsiburada' , fill: false},
-              { data: [60, 50, 90, 100, 55, 78], label: 'Trendyol' , fill: false},
-              { data: [55, 80, 70, 90, 65, 85], label: 'Amazon' , fill: false},
-              { data: [49, 90, 79, 85, 75, 70], label: 'Gittigidiyor' , fill: false},
-              { data: [90, 85, 75, 95, 72, 69], label: 'N11' , fill: false},
-            ]
+           labels: labels, 
+            datasets: [ {data: this.allprices, label: 'AllPrices', fill: false},
+                        /*
+              { data: [85, 72, 78, 75, 77, 75], label: 'Hepsiburada' , fill: false},*/
+            ]/* 
+            datasets: [{
+              // This dataset appears on the first axis
+              yAxisID: 'first-y-axis'
+          }, {
+              // This dataset appears on the second axis
+              yAxisID: 'second-y-axis'
+          }]*/
           },
           options: {
             legend: {
@@ -102,6 +121,60 @@ export class PricesByProductComponent implements OnInit {
             }
           }
         });
+/*
+        this.chart2 =new Chart('chart', {
+          type: 'line',
+          data: {
+            labels: [new Date("2015-3-15 13:3").toLocaleString(), new Date("2015-3-25 13:2").toLocaleString(), new Date("2015-4-25 14:12").toLocaleString()],
+            datasets: [{
+              label: 'Demo',
+              data: [{
+                  t: new Date("2015-3-15 13:3"),
+                  y: 12
+                },
+                {
+                  t: new Date("2015-3-25 13:2"),
+                  y: 21
+                },
+                {
+                  t: new Date("2015-4-25 14:12"),
+                  y: 32
+                }
+              ],
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+              ],
+              borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+              ],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            legend: {
+              display: true
+            },
+            scales: {
+              xAxes: [{
+                display: true
+              }],
+              yAxes: [{
+                display: true
+              }],
+            }
+          }
+        });*/
+
       });
     });
   }

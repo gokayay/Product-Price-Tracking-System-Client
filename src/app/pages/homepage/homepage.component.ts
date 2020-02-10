@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import Chart from 'chart.js';
+import * as Chart from 'chart.js';
 
 
 @Component({
@@ -80,7 +80,7 @@ export class HomepageComponent implements OnInit{
             }],
 
             xAxes: [{
-              barPercentage: 1.6,
+              
               gridLines: {
                 drawBorder: false,
                 color: 'rgba(255,255,255,0.1)',
@@ -124,12 +124,6 @@ export class HomepageComponent implements OnInit{
             display: false
           },
 
-          pieceLabel: {
-            render: 'percentage',
-            fontColor: ['white'],
-            precision: 2
-          },
-
           tooltips: {
             enabled: false
           },
@@ -149,7 +143,6 @@ export class HomepageComponent implements OnInit{
             }],
 
             xAxes: [{
-              barPercentage: 1.6,
               gridLines: {
                 drawBorder: false,
                 color: 'rgba(255,255,255,0.1)',
@@ -199,11 +192,6 @@ export class HomepageComponent implements OnInit{
         }
       };
 
-      var lineChart = new Chart(speedCanvas, {
-        type: 'line',
-        hover: false,
-        data: speedData,
-        options: chartOptions
-      });
+     
     }
 }
