@@ -16,6 +16,7 @@ import { AppRoutes } from './app.routing';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './data.service';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { DataService } from './data.service';
     FooterModule,
     FixedPluginModule,
   ],
-  providers: [DataService],
+  providers: [DataService,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
