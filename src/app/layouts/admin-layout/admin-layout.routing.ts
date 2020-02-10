@@ -19,7 +19,6 @@ import { CreateProductComponent } from 'app/pages/create/createproduct/createpro
 import { CreateSiteComponent } from 'app/pages/create/create-site/create-site.component';
 import { CreateProductpathComponent } from 'app/pages/create/create-productpath/create-productpath.component';
 import { PricesByProductComponent } from 'app/pages/specific-prices/prices-by-products/prices-by-product/prices-by-product.component';
-import { LineChartComponent } from 'app/pages/chart-example/line-chart/line-chart.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'homepage',      component: HomepageComponent },
@@ -41,7 +40,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'create-site',    component: CreateSiteComponent },
     { path: 'create-productpath',    component: CreateProductpathComponent },
     { path: 'pricesbyproduct',    component: PricesByProductComponent },
-    { path: 'line-chart',    component: LineChartComponent },
 
 
 ];

@@ -3,7 +3,7 @@ import { Site } from './site.model';
 
 export class Price{
     id : number;
-    price : string;
+    price : number;
     date : string;
     product: Product;
     site: Site;

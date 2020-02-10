@@ -19,6 +19,7 @@ export class PricesByProductComponent implements OnInit {
   }
 
   prices: Price[];
+  dailyprices: Price[] = [];
 
   priceHb: Price[] = [];
   priceTr: Price[] = [];
@@ -26,6 +27,7 @@ export class PricesByProductComponent implements OnInit {
   priceN11: Price[] = [];
   priceGg: Price[] = [];
   priceUnknown: Price[] = [];
+  lowestPriceHb: Price = new Price;
 
   pageprices: PagePrice = new PagePrice();
 
@@ -63,12 +65,23 @@ export class PricesByProductComponent implements OnInit {
   mapMarketData(data){
     let result = [];
     data.map(resp=>{
-      console.log(resp)
     result.push( {x:  new Date(resp.date) , y: resp.price});
-  }) 
-
+  });
   return result;
   }
+
+  // Bugüne eşit olan tarihli price objesini al.
+  // price objesini pageprices'dan alıp kontrol et?
+  compareDailyPrices(){
+    const bugun = new Date();
+    this.priceHb.forEach(element => {
+      if(new Date(element.date) == bugun){
+        console.log("kdmwqmkmkdmakw",element);
+      }
+      console.log("hadjhabdwjhawdaw");
+    });
+  }
+
 
 
   ngOnInit(){
@@ -76,6 +89,7 @@ export class PricesByProductComponent implements OnInit {
       this.product = paramMap["params"];
       this.pageSize="500";
 
+      
       console.log(this.product);
 
       this.dataService.getSearchingPrices(this.product.id, 1, this.pageSize)
@@ -88,6 +102,14 @@ export class PricesByProductComponent implements OnInit {
         this.prices=this.pageprices.content;
         
       
+        //iptal olacak, çünkü lojik işlemle bulunabilir.
+        this.dataService.getDailyPrices(this.product.id,1,this.pageSize)
+        .subscribe(data =>{this.pageprices = data;
+          this.size=this.pageprices.totalElements;
+          this.dailyprices=this.pageprices.content;
+          console.log("ckmsldöelkwdölk",this.dailyprices);
+        });
+
         // E-Ticaret Siteleri için DataSet Ayarlama
         for (let price of this.prices.values()) {
           if(price.site.id==1){
@@ -114,6 +136,7 @@ export class PricesByProductComponent implements OnInit {
             this.priceUnknown.push(price);
         }
 
+        this.compareDailyPrices();
 
         let chartCanvas = new CanvasJS.Chart("chartContainer", {
           

@@ -13,6 +13,7 @@ export const environment = {
   productAddressUrl: 'http://localhost:8081/productaddress',
   productAddressSearchUrl:'http://localhost:8081/productaddress/product-address-search',
   siteUrl: 'http://localhost:8081/site',
-  siteSearchUrl: 'http://localhost:8081/site/site-search'
+  siteSearchUrl: 'http://localhost:8081/site/site-search',
 
+  dailyPrice:'http://localhost:8081/price/daily-prices/'
 };

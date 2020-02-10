@@ -29,7 +29,6 @@ import { CreateSiteComponent } from 'app/pages/create/create-site/create-site.co
 import { CreateProductpathComponent } from 'app/pages/create/create-productpath/create-productpath.component';
 import { PricesByProductComponent } from 'app/pages/specific-prices/prices-by-products/prices-by-product/prices-by-product.component';
 import { ChartsModule } from 'ng2-charts';
-import { LineChartComponent } from 'app/pages/chart-example/line-chart/line-chart.component';
 
 
 @NgModule({
@@ -62,7 +61,6 @@ import { LineChartComponent } from 'app/pages/chart-example/line-chart/line-char
     CreateSiteComponent,
     CreateProductpathComponent,
     PricesByProductComponent,
-    LineChartComponent,
 
   ]
 })
