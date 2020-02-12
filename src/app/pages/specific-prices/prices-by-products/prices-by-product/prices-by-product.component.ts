@@ -70,19 +70,6 @@ export class PricesByProductComponent implements OnInit {
   return result;
   }
 
-  // Bugüne eşit olan tarihli price objesini al.
-  // price objesini pageprices'dan alıp kontrol et?
-  compareDailyPrices(){
-    const bugun = new Date();
-    this.priceHb.forEach(element => {
-      if(new Date(element.date) == bugun){
-        console.log("kdmwqmkmkdmakw",element);
-      }
-      console.log("hadjhabdwjhawdaw");
-    });
-  }
-
-
 
   ngOnInit(){
     this.route.paramMap.subscribe( paramMap =>{ // for incoming product parameter
@@ -102,127 +89,125 @@ export class PricesByProductComponent implements OnInit {
         this.prices=this.pageprices.content;
         
       
-        //iptal olacak, çünkü lojik işlemle bulunabilir.
         this.dataService.getDailyPrices(this.product.id,1,this.pageSize)
         .subscribe(data =>{this.pageprices = data;
           this.size=this.pageprices.totalElements;
           this.dailyprices=this.pageprices.content;
-          console.log("ckmsldöelkwdölk",this.dailyprices);
-        });
+          console.log(this.dailyprices);
+        
 
-        // E-Ticaret Siteleri için DataSet Ayarlama
-        for (let price of this.prices.values()) {
-          if(price.site.id==1){
-            price.date = this.datepipe.transform(price.date , 'MM/dd/yyyy'); // no need this in Canvas.Js
-            this.priceHb.push(price);
+          // E-Ticaret Siteleri için DataSet Ayarlama
+          for (let price of this.prices.values()) {
+            if(price.site.id==1){
+              price.date = this.datepipe.transform(price.date , 'MM/dd/yyyy'); // no need this in Canvas.Js
+              this.priceHb.push(price);
+            }
+            if(price.site.id==2){
+              price.date = this.datepipe.transform(price.date , 'MM/dd/yyyy'); 
+              this.priceTr.push(price);
+            }
+            if(price.site.id==3){
+              price.date = this.datepipe.transform(price.date , 'MM/dd/yyyy'); 
+              this.priceAm.push(price);
+            }
+            if(price.site.id==4){
+              price.date = this.datepipe.transform(price.date , 'MM/dd/yyyy'); 
+              this.priceN11.push(price);
+            }
+            if(price.site.id==5){
+              price.date = this.datepipe.transform(price.date , 'MM/dd/yyyy'); 
+              this.priceGg.push(price);
+            }
+            else
+              this.priceUnknown.push(price);
           }
-          if(price.site.id==2){
-            price.date = this.datepipe.transform(price.date , 'MM/dd/yyyy'); 
-            this.priceTr.push(price);
-          }
-          if(price.site.id==3){
-            price.date = this.datepipe.transform(price.date , 'MM/dd/yyyy'); 
-            this.priceAm.push(price);
-          }
-          if(price.site.id==4){
-            price.date = this.datepipe.transform(price.date , 'MM/dd/yyyy'); 
-            this.priceN11.push(price);
-          }
-          if(price.site.id==5){
-            price.date = this.datepipe.transform(price.date , 'MM/dd/yyyy'); 
-            this.priceGg.push(price);
-          }
-          else
-            this.priceUnknown.push(price);
-        }
 
-        this.compareDailyPrices();
 
-        let chartCanvas = new CanvasJS.Chart("chartContainer", {
-          
-          animationEnabled: true,
-          axisX: {
-            valueFormatString: "MMM-DD-YYYY"
-          },
-          axisY2: {
-            title: "Prices",
-            suffix: " TL"
-          },
-          toolTip: {
-            shared: true
-          },
-          legend: {
-            cursor: "pointer",
-            verticalAlign: "top",
-            horizontalAlign: "center",
-            dockInsidePlotArea: false,
-            itemclick : toggleDataSeries
-          },
-          data: [{
-            type:"spline",
-            visible: true,
-            axisYType: "secondary",
-            name: "Hepsiburada",
-            showInLegend: true,
-            markerSize: 5,
-            yValueFormatString: "#####TL",
-            dataPoints:   
-              this.mapMarketData(this.priceHb)
+          let chartCanvas = new CanvasJS.Chart("chartContainer", {
             
-          },
-          {
-            type: "spline",
-            visible: true,
-            axisYType: "secondary",
-            name: "Trendyol",
-            showInLegend: true,
-            markerSize: 5,
-            yValueFormatString: "#####TL",
-            dataPoints: 
-              this.mapMarketData(this.priceTr)		
-          },
-          {
-            type: "spline",
-            visible: true,
-            axisYType: "secondary",
-            name: "Amazon",
-            showInLegend: true,
-            markerSize: 5,
-            yValueFormatString: "#####TL",
-            dataPoints:  this.mapMarketData(this.priceAm)	
-          },
-          {
-            type: "spline",
-            visible: true,
-            axisYType: "secondary",
-            name: "N11",
-            showInLegend: true,
-            markerSize: 5,
-            yValueFormatString: "#####TL",
-            dataPoints:  this.mapMarketData(this.priceN11)	
-          },
-          {
-            type: "spline",
-            visible: true,
-            axisYType: "secondary",
-            name: "GittiGidiyor",
-            showInLegend: true,
-            markerSize: 5,
-            yValueFormatString: "#####TL",
-            dataPoints:  this.mapMarketData(this.priceGg)	
-          }]
-        });
-        chartCanvas.render();
-
-        function toggleDataSeries(e){
-          if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-            e.dataSeries.visible = false;
-          } else{
-            e.dataSeries.visible = true;
-          }
+            animationEnabled: true,
+            axisX: {
+              valueFormatString: "MMM-DD-YYYY"
+            },
+            axisY2: {
+              title: "Prices",
+              suffix: " TL"
+            },
+            toolTip: {
+              shared: true
+            },
+            legend: {
+              cursor: "pointer",
+              verticalAlign: "top",
+              horizontalAlign: "center",
+              dockInsidePlotArea: false,
+              itemclick : toggleDataSeries
+            },
+            data: [{
+              type:"spline",
+              visible: true,
+              axisYType: "secondary",
+              name: "Hepsiburada",
+              showInLegend: true,
+              markerSize: 5,
+              yValueFormatString: "#####TL",
+              dataPoints:   
+                this.mapMarketData(this.priceHb)
+              
+            },
+            {
+              type: "spline",
+              visible: true,
+              axisYType: "secondary",
+              name: "Trendyol",
+              showInLegend: true,
+              markerSize: 5,
+              yValueFormatString: "#####TL",
+              dataPoints: 
+                this.mapMarketData(this.priceTr)		
+            },
+            {
+              type: "spline",
+              visible: true,
+              axisYType: "secondary",
+              name: "Amazon",
+              showInLegend: true,
+              markerSize: 5,
+              yValueFormatString: "#####TL",
+              dataPoints:  this.mapMarketData(this.priceAm)	
+            },
+            {
+              type: "spline",
+              visible: true,
+              axisYType: "secondary",
+              name: "N11",
+              showInLegend: true,
+              markerSize: 5,
+              yValueFormatString: "#####TL",
+              dataPoints:  this.mapMarketData(this.priceN11)	
+            },
+            {
+              type: "spline",
+              visible: true,
+              axisYType: "secondary",
+              name: "GittiGidiyor",
+              showInLegend: true,
+              markerSize: 5,
+              yValueFormatString: "#####TL",
+              dataPoints:  this.mapMarketData(this.priceGg)	
+            }]
+          });
           chartCanvas.render();
-        }
 
+          function toggleDataSeries(e){
+            if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+              e.dataSeries.visible = false;
+            } else{
+              e.dataSeries.visible = true;
+            }
+            chartCanvas.render();
+          }
+        });
       });
     });
   }

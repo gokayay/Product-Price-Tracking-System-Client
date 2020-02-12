@@ -175,7 +175,6 @@ export class DataService {
     return this._http.get<PagePrice>(`${environment.dailyPrice}${productId}?page=${page}&size=${size}`).pipe(
       map(response => {
         const data = response;
-        console.log(data);
         return data ;
       }));
   }
