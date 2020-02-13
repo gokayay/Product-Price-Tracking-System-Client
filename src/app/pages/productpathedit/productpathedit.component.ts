@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductAddress } from 'app/models/productaddress.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { NgbPaginationNext } from '@ng-bootstrap/ng-bootstrap';
+import { NotificationsService } from 'app/services/notifications.service';
 
 @Component({
     selector: 'productpathedit-cmp',
@@ -12,7 +13,7 @@ import { NgbPaginationNext } from '@ng-bootstrap/ng-bootstrap';
 })
 
 export class ProductPathEditComponent implements OnInit {
-    constructor(private dataService: DataService, private route: ActivatedRoute) { }
+    constructor(private dataService: DataService, private route: ActivatedRoute,private notificationService: NotificationsService) { }
 
     productpaths: ProductAddress[];
     productpath: ProductAddress = new ProductAddress();
@@ -35,7 +36,16 @@ export class ProductPathEditComponent implements OnInit {
   
         this.dataService.deleteProductAddress(this.uptProductPath.id)
           .subscribe(data =>this.productpaths= data);
-      }
+    }
+    
+    showNotification(from, align) {
+      let message : String= "Product path updated successfully!";
+      this.notificationService.showSuccessNotification(from,align,message);
+    }
+    showNotificationDelete(from, align) {
+      let message : String= "Product path deleted successfully!";
+      this.notificationService.showInfoNotification(from,align,message);
+    }
 
     ngOnInit() {
         this.route.paramMap.subscribe(paramMap => {

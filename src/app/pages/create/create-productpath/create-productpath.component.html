@@ -53,7 +53,7 @@
             <div class="row">
               <div class="col-md-6 text-center">
                 <div class="update ml-auto mr-auto">
-                  <button (click)="createProductPath($event)" 
+                  <button (click)="createProductPath($event); showNotification('top','right');" 
                   type="button" class="btn btn-primary btn-round"
                   [routerLink]="['/productpaths']">
                   Create Product Path</button>

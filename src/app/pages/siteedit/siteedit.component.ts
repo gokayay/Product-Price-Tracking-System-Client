@@ -4,6 +4,7 @@ import { Site } from 'app/models/site.model';
 import { HttpHeaders } from '@angular/common/http';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NotificationsService } from 'app/services/notifications.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export class SiteEditComponent implements OnInit{
 
-    constructor(private dataService: DataService ,private route :ActivatedRoute){}
+    constructor(private dataService: DataService ,private route :ActivatedRoute, private notificationService: NotificationsService){}
 
     siteForm: FormGroup;
     sites : Site[];
@@ -47,6 +48,15 @@ export class SiteEditComponent implements OnInit{
 
       this.dataService.deleteSite(this.uptSite.id)
         .subscribe(data =>this.sites = data);
+    }
+
+    showNotification(from, align) {
+      let message : String= "E-commerce site updated successfully!";
+      this.notificationService.showSuccessNotification(from,align,message);
+    }
+    showNotificationDelete(from, align) {
+      let message : String= "E-commerce site deleted successfully!";
+      this.notificationService.showInfoNotification(from,align,message);
     }
 
 

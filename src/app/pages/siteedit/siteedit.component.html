@@ -55,14 +55,15 @@
             <div class="col-md-6 text-center">
               <div class="update ml-auto mr-auto">
                 <button type="submit" class="btn btn-primary btn-round" 
-                (click)="updateSite($event)"
-                [routerLink]="['/sitelist']">Update Site</button>
+                (click)="updateSite($event); showNotification('top','right');">
+                Update Site</button>
               </div>
             </div>
             <div class="col-md-6 text-center">
               <div class="update ml-auto mr-auto">
                 <button type="delete" class="btn btn-danger btn-round"
-                (click)="deleteSite($event)" [routerLink]="['/sitelist']">Delete Site</button>
+                (click)="deleteSite($event); showNotificationDelete('top','right');"
+                 [routerLink]="['/sitelist']">Delete Site</button>
               </div>
             </div>
           </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'app/models/product.model';
 import { DataService } from 'app/data.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { NotificationsService } from 'app/services/notifications.service';
 
 @Component({
     selector: 'createproduct-cmp',
@@ -11,7 +12,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 export class CreateProductComponent implements OnInit{
 
-    constructor(private dataService: DataService){}
+    constructor(private dataService: DataService, private notificationService: NotificationsService){}
 
     products: Product[];
     productForm: FormGroup;
@@ -28,6 +29,11 @@ export class CreateProductComponent implements OnInit{
 
         this.dataService.postProduct(this.createdProduct)
         .subscribe(data =>this.products = data);
+    }
+
+    showNotification(from, align) {
+      let message : String= "Product created successfully!";
+      this.notificationService.showSuccessNotification(from,align,message);
     }
   
     ngOnInit(){

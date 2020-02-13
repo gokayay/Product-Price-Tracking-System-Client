@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DataService } from 'app/data.service';
 import { Site } from 'app/models/site.model';
+import { NotificationsService } from 'app/services/notifications.service';
 
 @Component({
   selector: 'app-create-site',
@@ -13,7 +14,7 @@ import { Site } from 'app/models/site.model';
 })
 export class CreateSiteComponent implements OnInit {
 
-  constructor(private dataService: DataService){}
+  constructor(private dataService: DataService,  private notificationService: NotificationsService){}
 
   siteForm: FormGroup;
   sites : Site[];
@@ -32,7 +33,12 @@ export class CreateSiteComponent implements OnInit {
 
       this.dataService.postSite(this.createdSite)
       .subscribe(data =>{this.sites = data});
-      }
+  }
+
+  showNotification(from, align) {
+    let message : String= "E-commerce site created successfully!";
+    this.notificationService.showSuccessNotification(from,align,message);
+  }
 
   ngOnInit(){
         this.siteForm = new FormGroup({

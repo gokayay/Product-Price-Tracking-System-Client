@@ -52,15 +52,15 @@
           <div class="row">
             <div class="col-md-6 text-center">
               <div class="update ml-auto mr-auto">
-                <button (click)="updateProduct($event)" 
+                <button (click)="updateProduct($event); showNotification('top','right');" 
                 type="submit" class="btn btn-primary btn-round" 
-                [routerLink]="['/productlist']" > 
+                > 
                 Update Product</button>
               </div>
             </div>
             <div class="col-md-6 text-center">
               <div class="update ml-auto mr-auto">
-                <button (click)="deleteProduct($event)"
+                <button (click)="deleteProduct($event); showNotificationDelete('top','right');"
                 type="delete" class="btn btn-danger btn-round" 
                 [routerLink]="['/productlist']" >
                 Delete Product</button>

@@ -17,6 +17,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './data.service';
 import { DatePipe } from '@angular/common';
+import { NotificationsService } from './services/notifications.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { DatePipe } from '@angular/common';
     FooterModule,
     FixedPluginModule,
   ],
-  providers: [DataService,DatePipe],
+  providers: [DataService,DatePipe,NotificationsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

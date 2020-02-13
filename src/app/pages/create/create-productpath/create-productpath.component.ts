@@ -5,6 +5,7 @@ import { ProductAddress } from 'app/models/productaddress.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Product } from 'app/models/product.model';
 import { Site } from 'app/models/site.model';
+import { NotificationsService } from 'app/services/notifications.service';
 
 @Component({
   selector: 'app-create-productpath',
@@ -13,7 +14,7 @@ import { Site } from 'app/models/site.model';
 })
 export class CreateProductpathComponent implements OnInit {
 
-  constructor(private dataService: DataService, private route: ActivatedRoute) { 
+  constructor(private dataService: DataService, private route: ActivatedRoute, private notificationService: NotificationsService) { 
       this.createdProductPath.product = this.createdProduct;
       this.createdProductPath.site = this.createdSite;
   }
@@ -34,7 +35,12 @@ export class CreateProductpathComponent implements OnInit {
         console.log(this.createdProductPath.productPath);
         this.dataService.postProductAddress( this.createdProductPath)
         .subscribe(data =>this.productpath = data);
-    }   
+    }
+    
+    showNotification(from, align) {
+        let message : String= "Product path created successfully!";
+        this.notificationService.showSuccessNotification(from,align,message);
+      }
 
 
     ngOnInit() {

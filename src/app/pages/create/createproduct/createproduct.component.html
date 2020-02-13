@@ -47,7 +47,7 @@
             <div class="row">
               <div class="col-md-6 text-center">
                 <div class="update ml-auto mr-auto">
-                  <button (click)="createProduct($event)" 
+                  <button (click)="createProduct($event); showNotification('top','right');" 
                   type="submit" class="btn btn-primary btn-round" 
                   [routerLink]="['/productlist']">
                   Create Product</button>
