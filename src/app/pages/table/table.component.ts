@@ -60,7 +60,7 @@ export class TableComponent implements OnInit{
        this.searching(this.product.id);
       });
 
-      this.pageSize="100";
+      this.pageSize="150";
       this.searchKey="";
       this.dataService.getPrices(this.page,this.pageSize)
       .subscribe(data =>{this.pageprices = data;
