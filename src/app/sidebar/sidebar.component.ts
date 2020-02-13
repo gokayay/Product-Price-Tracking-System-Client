@@ -14,20 +14,10 @@ export const ROUTES: RouteInfo[] = [
     { path: '/sitelist',      title: 'Site List',         icon:'nc-cart-simple',    class: '' },
     { path: '/productpaths',   title: 'Product Path',      icon:'nc-vector',    class: '' },
     { path: '/table',         title: 'Price List',        icon:'nc-money-coins',    class: '' },
-
-   /* { path: '/homepage',   title: '.',      icon:'nc-simple-delete',    class: '' },
-    { path: '/productedit',   title: 'Edit Product',      icon:'nc-tag-content',    class: '' },
-    { path: '/siteedit',      title: 'Edit Site',         icon:'nc-cart-simple',    class: '' },
-    { path: '/productpathedit',   title: 'Edit Product Path',      icon:'nc-vector',    class: '' },
-*/
-    { path: '/homepage',   title: '.',      icon:'nc-simple-delete',    class: '' },
-
+    /*{ path: '/homepage',   title: '.',      icon:'nc-simple-delete',    class: '' },
     { path: '/createproduct',   title: 'Create Product',      icon:'nc-tag-content',    class: '' },
     { path: '/create-site',   title: 'Create Site',      icon:'nc-cart-simple',    class: '' },
-    { path: '/create-productpath',   title: 'Create Product Path',       icon:'nc-vector',    class: '' },
-
-
-
+    { path: '/create-productpath',   title: 'Create Product Path',       icon:'nc-vector',    class: '' },*/
 ];
 
 @Component({
