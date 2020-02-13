@@ -18,6 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './data.service';
 import { DatePipe } from '@angular/common';
 import { NotificationsService } from './services/notifications.service';
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,7 @@ import { NotificationsService } from './services/notifications.service';
     FooterModule,
     FixedPluginModule,
   ],
-  providers: [DataService,DatePipe,NotificationsService],
+  providers: [DataService,DatePipe,NotificationsService,NgbCarouselConfig],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
